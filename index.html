@@ -11,17 +11,29 @@
         <h1>Golf Game</h1>
     </header>
     <main>
-        <section id="game-area">
-            <div id="game-display">Game content will go here</div>
-            <div id="controls-area">
-                <button id="start-game">Start</button>
-                <button id="reset-game">Reset</button>
-            </div>
-        </section>
-        <section id="score-area">
-            <p>Score: 0</p>
-        </section>
+        <div class="player player--0 player--active" id="player--0">
+            <h2 id="name--0">Player 1</h2>
+            <p id="instruction--0">Swing away!</p>
+            <p id="total--0">Scorecard: 0</p>
+            <p id="current--0">Distance to hole: 300 meters</p>
+            <p id="swings--0">Shots from tee: 0</p>
+            <button id="btn--roll-0">Swing</button>
+        </div>
+        <div class="player player--1" id="player--1">
+            <h2 id="name--1">Player 2</h2>
+            <p id="instruction--1">Swing away!</p>
+            <p id="total--1">Scorecard: 0</p>
+            <p id="current--1">Distance to hole: 300 meters</p>
+            <p id="swings--1">Shots from tee: 0</p>
+            <button id="btn--roll-1">Swing</button>
+        </div>
+        <div id="hole-info">Hole 1 - Par 4</div>
+        <div id="total-par">Overall 0 Par</div>
+        <img src="" alt="Dice" class="dice hidden" />
+        <button id="btn--end">End Game</button>
+        <button id="btn--new">New Game</button>
+        <button id="btn--auto-1">Auto Play</button>
     </main>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
 </body>
 </html>
