@@ -75,4 +75,17 @@ const init = function (isAgainstComputer) {
 	updateUIForOpponent();
 };
 
+// Show the instructions popup at the start
+const showInstructionsPopup = function () {
+	const instructionsPopup = document.getElementById(
+		"instructions-popup"
+	);
+	instructionsPopup.classList.remove("hidden");
+};
+const hideInstructionsPopup = function () {
+	const instructionsPopup = document.getElementById(
+		"instructions-popup"
+	);
+	instructionsPopup.classList.add("hidden");
+};
 btnNew.addEventListener("click", init);
