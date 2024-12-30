@@ -8,22 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	let score = 0;
 
-	function updateDisplay(message) {
-		gameDisplay.textContent = message;
+	function initializeGame() {
+		// Original repository logic for initializing the game goes here
+		gameDisplay.textContent = "Welcome to Golf Game!";
 	}
 
-	function updateScore(newScore) {
-		score = newScore;
+	function handleGameStart() {
+		// Original repository logic for starting the game
+		gameDisplay.textContent = "Game in Progress...";
+	}
+
+	function handleGameReset() {
+		score = 0;
 		scoreDisplay.textContent = `Score: ${score}`;
+		initializeGame();
 	}
 
-	startButton.addEventListener("click", () => {
-		updateDisplay("Game Started!");
-		updateScore(score + 10);
-	});
+	startButton.addEventListener("click", handleGameStart);
+	resetButton.addEventListener("click", handleGameReset);
 
-	resetButton.addEventListener("click", () => {
-		updateDisplay("Game content will go here");
-		updateScore(0);
-	});
+	initializeGame();
 });
