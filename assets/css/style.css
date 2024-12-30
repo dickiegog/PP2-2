@@ -292,3 +292,44 @@ main {
 		font-size: 3rem;
 	}
 }
+/* Media Query for screens below 640px */
+@media (max-width: 640px) {
+	main {
+		margin-top: 20rem;
+		height: auto;
+		flex-direction: column;
+	}
+	body {
+		margin-top: 100px;
+	}
+	.game-name {
+		font-size: 2.5rem;
+		top: -50px;
+		width: 250px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.hole-info {
+		font-size: 2rem;
+		padding: 0.5rem 2rem;
+		margin-top: -50px;
+	}
+	.instructions-popup {
+		margin-top: -200px;
+	}
+	.player {
+		margin: 1rem 0;
+	}
+
+	.total-par {
+		width: 220px;
+	}
+
+	.final-data {
+		position: relative;
+		opacity: 1;
+		width: 350px;
+		transform: none;
+		margin-top: 12rem;
+	}
+}
