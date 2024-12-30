@@ -25,7 +25,17 @@ let scores,
 let againstComputer = false; // Add a variable to track if playing against a computer
 
 // Add event listeners
-
+btnAuto1.addEventListener("click", function () {
+	if (activePlayer === 1 && !finishedHoles[1] && playing) {
+		autoPlay(); // Start auto-play for player 2
+	}
+});
+btnRoll0.addEventListener("click", function () {
+	if (activePlayer === 0) rollDice();
+});
+btnRoll1.addEventListener("click", function () {
+	if (activePlayer === 1) rollDice();
+});
 btnNew.addEventListener("click", function () {
 	hideInstructionsPopup();
 	init(againstComputer);
@@ -46,33 +56,31 @@ document
 		hideInstructionsPopup();
 		init(true);
 	});
+btnEnd.addEventListener("click", function () {
+	if (playing) {
+		// End the game and check for the winner
+		checkForWinner();
+		playing = false; // Stop the game
+	} else {
+		alert("The game is not currently active.");
+	}
+});
 
 // Initialize game
-const init = function (isAgainstComputer) {
-	againstComputer = isAgainstComputer; // Update the againstComputer variable
-	scores = [0, 0];
-	currentScores = [0, 0];
-	swings = [0, 0];
-	activePlayer = 0;
-	playing = true;
-	totalPar = 0; // Initialize overall par to 0
-	finishedHoles = [false, false];
-
-	diceEl.classList.add("hidden");
-	updateUI();
-	newHole();
-	// Display instructions popup before starting the game
+const init = function (isAgainstComputer) {};
+const updateUIForOpponent = function () {
+	btnRoll1.style.display = againstComputer
+		? "none"
+		: "inline-block";
+	btnAuto1.style.display = againstComputer
+		? "inline-block"
+		: "none";
+};
+const hideInstructionsPopup = function () {
 	const instructionsPopup = document.getElementById(
 		"instructions-popup"
 	);
-	instructionsPopup.classList.remove("hidden");
-
-	// Reset the button text for both players
-	btnRoll0.textContent = "Swing";
-	btnRoll1.textContent = "Waiting...";
-	hideInstructionsPopup();
-	// Hide the "Auto" button for player 2 if not playing against the computer
-	updateUIForOpponent();
+	instructionsPopup.classList.add("hidden");
 };
 
 // Show the instructions popup at the start
@@ -82,10 +90,133 @@ const showInstructionsPopup = function () {
 	);
 	instructionsPopup.classList.remove("hidden");
 };
-const hideInstructionsPopup = function () {
-	const instructionsPopup = document.getElementById(
-		"instructions-popup"
-	);
-	instructionsPopup.classList.add("hidden");
+const updateUI = function () {
+	document.getElementById(
+		`total--0`
+	).textContent = `Scorecard: ${scores[0]}`;
+	document.getElementById(
+		`total--1`
+	).textContent = `Scorecard: ${scores[1]}`;
+	document.getElementById(
+		`current--0`
+	).textContent = `Distance to hole: ${currentScores[0]}00 meters`;
+	document.getElementById(
+		`current--1`
+	).textContent = `Distance to hole: ${currentScores[1]}00 meters`;
+	document.getElementById(
+		`swings--0`
+	).textContent = `Shots from tee: ${swings[0]}`;
+	document.getElementById(
+		`swings--1`
+	).textContent = `Shots from tee: ${swings[1]}`;
+	holeInfoEl.textContent = `Hole ${holeNumber} - Par ${currentPar}`;
+	totalParEl.textContent = `Overall ${totalPar} Par`;
+	const parScore0 = scores[0] - totalPar;
+	const parScore1 = scores[1] - totalPar;
+	document.getElementById(
+		`name--0`
+	).textContent = `Player 1: ${
+		holeNumber === 1
+			? ""
+			: parScore0 === 0
+			? "Par"
+			: parScore0 + " Par"
+	}`;
+	document.getElementById(
+		`name--1`
+	).textContent = `Player 2: ${
+		holeNumber === 1
+			? ""
+			: parScore1 === 0
+			? "Par"
+			: parScore1 + " Par"
+	}`;
 };
+// Change the hole number and par
+const newHole = function () {
+	currentPar = Math.floor(Math.random() * 3) + 3;
+	currentScores = [currentPar, currentPar];
+	swings = [0, 0];
+	finishedHoles = [false, false];
+	updateUI();
+};
+// Roll the dice to determine swing distance
+const rollDice = function () {
+	if (playing && !finishedHoles[activePlayer]) {
+		const roll = Math.trunc(Math.random() * 6) + 1;
+		diceEl.src = `assets/images/dice-${roll}.png`;
+		diceEl.classList.remove("hidden");
+		swings[activePlayer]++;
+
+		if (roll === 1) {
+			displayMessage("Sliced left, FORE!!");
+		} else if (roll === 6) {
+			displayMessage("Sliced right, FORE!!");
+		} else if (roll === 2 || roll === 4) {
+			displayMessage("Great shot!");
+			currentScores[activePlayer] -= 2; // Decrease distance to hole
+		} else if (roll === 3 || roll === 5) {
+			displayMessage("Bit short");
+			currentScores[activePlayer]--; // Decrease distance to hole
+		}
+
+		if (currentScores[activePlayer] <= 0) {
+			finishedHoles[activePlayer] = true;
+			scores[activePlayer] += swings[activePlayer];
+			if (currentScores[activePlayer] <= 0) {
+				currentScores[activePlayer] = 0;
+				displayMessage("IN THE HOLE!");
+				setTimeout(() => {
+					diceEl.classList.add("hidden"); // Hide the dice after 2 seconds
+				}, 1000);
+			}
+			switchPlayer(); // Switch player without changing the score
+		} else {
+			updateUI(); // Update UI if the current score changes
+		}
+	}
+};
+// Auto-play for player 2
+const autoPlay = function () {
+	if (activePlayer === 1 && !finishedHoles[1] && playing) {
+		const roll = Math.trunc(Math.random() * 6) + 1;
+		diceEl.src = `assets/images/dice-${roll}.png`;
+		diceEl.classList.remove("hidden");
+		swings[activePlayer]++;
+
+		if (roll === 1) {
+			displayMessage("Sliced left, FORE!!");
+		} else if (roll === 6) {
+			displayMessage("Sliced right, FORE!!");
+		} else if (roll === 2 || roll === 4) {
+			displayMessage("Great shot!");
+			currentScores[activePlayer] -= 2; // Decrease distance to hole
+		} else if (roll === 3 || roll === 5) {
+			displayMessage("Bit short");
+			currentScores[activePlayer]--; // Decrease distance to hole
+		}
+
+		if (currentScores[activePlayer] <= 0) {
+			finishedHoles[activePlayer] = true;
+			scores[activePlayer] += swings[activePlayer];
+			if (currentScores[activePlayer] <= 0) {
+				currentScores[activePlayer] = 0;
+				displayMessage("IN THE HOLE!");
+				setTimeout(() => {
+					diceEl.classList.add("hidden"); // Hide the dice after 2 seconds
+				}, 1000);
+			}
+			updateUI(); // Update UI after adding to the score
+			switchPlayer();
+		} else {
+			updateUI(); // Update UI if the current score changes
+		}
+
+		// Check if player 2 has finished the hole, if not, continue auto-play
+		if (!finishedHoles[1]) {
+			setTimeout(autoPlay, 1000); // Auto-play with a delay
+		}
+	}
+};
+
 btnNew.addEventListener("click", init);

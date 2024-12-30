@@ -211,6 +211,22 @@ main {
 	z-index: 10; /* Make sure it appears on top of the game score */
 	transform: rotate(-25deg); /* Rotate the text by -25 degrees to make it vertical */
 }
+.dice {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 10rem;
+	width: 10rem;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+	border-radius: 15%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	border: solid 3px #d9d9d9;
+}
 #close-instructions {
 	margin-top: 20px;
 	background-color: #d70303;
