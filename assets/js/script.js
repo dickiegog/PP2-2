@@ -165,8 +165,44 @@ const newHole = function () {
 	finishedHoles = [false, false];
 	updateUI();
 };
-
-
+// Change the active player
+const switchPlayer = function () {
+	activePlayer = activePlayer === 0 ? 1 : 0;
+	player0El.classList.toggle("player--active");
+	player1El.classList.toggle("player--active");
+	btnRoll0.textContent =
+		activePlayer === 0 ? "Swing" : "Waiting...";
+	btnRoll1.textContent =
+		activePlayer === 1 ? "Swing" : "Waiting...";
+	if (finishedHoles[0] && finishedHoles[1]) {
+		if (holeNumber < 9) {
+			// Move to the next hole
+			totalPar += currentPar;
+			holeNumber++;
+			newHole();
+		} else {
+			// End the game after the last hole
+			totalPar += currentPar;
+			updateUI();
+			playing = false;
+			checkForWinner();
+		}
+	}
+};
+// Check for the winner based on current scores
+const checkForWinner = function () {
+	let winnerMessage = "";
+	if (scores[0] < scores[1]) {
+		winnerMessage = `Player 1 wins with a score of ${scores[0]} to ${scores[1]}`;
+	} else if (scores[0] > scores[1]) {
+		winnerMessage = `Player 2 wins with a score of ${scores[1]} to ${scores[0]}`;
+	} else {
+		winnerMessage = "It's a tie!";
+	}
+	alert(
+		`Game over! Total Par: ${totalPar}\n${winnerMessage}`
+	);
+};
 // Roll the dice to determine swing distance
 const rollDice = function () {
 	if (playing && !finishedHoles[activePlayer]) {
@@ -245,6 +281,18 @@ const autoPlay = function () {
 		}
 	}
 };
-
+// Message to notify player of what to do and the result of their swing
+const displayMessage = function (message) {
+	document.getElementById(
+		`instruction--${activePlayer}`
+	).textContent = message;
+	setTimeout(() => {
+		if (playing && !finishedHoles[activePlayer]) {
+			document.getElementById(
+				`instruction--${activePlayer}`
+			).textContent = "Swing away!";
+		}
+	}, 2000);
+};
 showInstructionsPopup();
 btnNew.addEventListener("click", init);
