@@ -1,29 +1,29 @@
-console.log("Golf Game Initial!");
-
 document.addEventListener("DOMContentLoaded", () => {
-	const startButton = document.querySelector(
-		"#controls-area button:nth-child(1)"
-	);
-	const resetButton = document.querySelector(
-		"#controls-area button:nth-child(2)"
-	);
-	const questionArea = document.querySelector(
-		"#question-area"
-	);
-	const scoreArea = document.querySelector("#score-area p");
+	const startButton = document.getElementById("start-game");
+	const resetButton = document.getElementById("reset-game");
+	const gameDisplay =
+		document.getElementById("game-display");
+	const scoreDisplay =
+		document.querySelector("#score-area p");
 
 	let score = 0;
 
+	function updateDisplay(message) {
+		gameDisplay.textContent = message;
+	}
+
+	function updateScore(newScore) {
+		score = newScore;
+		scoreDisplay.textContent = `Score: ${score}`;
+	}
+
 	startButton.addEventListener("click", () => {
-		questionArea.textContent =
-			"Game started! Answer the question.";
-		score += 10;
-		scoreArea.textContent = `Score: ${score}`;
+		updateDisplay("Game Started!");
+		updateScore(score + 10);
 	});
 
 	resetButton.addEventListener("click", () => {
-		questionArea.textContent = "Question goes here";
-		score = 0;
-		scoreArea.textContent = `Score: ${score}`;
+		updateDisplay("Game content will go here");
+		updateScore(0);
 	});
 });
