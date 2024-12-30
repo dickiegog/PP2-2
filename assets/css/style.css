@@ -34,54 +34,30 @@ main {
 	justify-content: space-around;
 	align-items: center;
 }
+/* Player boxes */
 .player {
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-.player--active {
-    border-color: #4CAF50;
-    background-color: #e8f5e9;
-}
-
-.dice {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: 1em auto;
-}
-.hidden {
-    display: none;
-}
-
-.instructions-popup {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
+	flex: 1;
+	padding: 2rem;
+	margin: 2rem;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-	z-index: 100;
-	max-width: 100%;
-	max-height: 100%;
-	overflow: hidden;
-}
-.instructions-content {
-	background-color: white;
-	padding: 20px;
-	font-size: 1.4rem;
-	line-height: 2.5rem;
-	border-radius: 10px;
-	height: auto;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	transition: all 0.75s;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 5px;
 	text-align: center;
-	max-width: 80%;
-	max-height: 70%; /* Adjust the maximum height to 80% */
-	overflow: hidden;
+	overflow: hidden; /* Prevent text from overflowing */
+	max-height: fit-content;
+}
+/* Player names */
+.name {
+	font-size: 4rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+	font-weight: 300;
+	margin-bottom: 1rem;
+	text-align: center;
 }
 .btn--roll,
 .btn--auto {
@@ -134,6 +110,76 @@ main {
 	border-radius: 5px;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 	transition: all 0.2s;
+}
+/* 9 Hole Golf Course name */
+.game-name {
+	position: absolute;
+	left: -30px;
+	top: 80px;
+	font-size: 4rem;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin-bottom: 1rem;
+	color: #cf0221;
+	font-weight: bold; /* Make the text bold */
+	z-index: 10; /* Make sure it appears on top of the game score */
+	transform: rotate(-25deg); /* Rotate the text by -25 degrees to make it vertical */
+}
+/* instructions while playing */
+.instruction {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	color: #555;
+}
+/* Player current game details */
+.current-score,
+.swings,
+.total-score {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	color: #4d7c0f;
+}
+/*  Hole number and par */
+.hole-info {
+	position: absolute;
+	top: 4rem;
+	left: 50%;
+	padding: 0.5rem 3rem;
+	width: auto;
+	background-color: #05dafa;
+	border-radius: 10px;
+	transform: translateX(-50%);
+	font-size: 5rem;
+	font-weight: 900;
+	color: #066891;
+	z-index: 9;
+}
+/* Total Par for all holes played */
+.total-par {
+	position: absolute;
+	bottom: 7.5rem;
+	left: 50%;
+	opacity: 0.9;
+	transform: translateX(-50%);
+	font-size: 3.5rem;
+	font-weight: 700;
+	color: #0365b5;
+}
+.dice {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 10rem;
+	width: 10rem;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+	border-radius: 15%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	border: solid 3px #d9d9d9;
 }
 .player--active {
 	background-color: rgba(255, 255, 255, 0.9);
@@ -197,42 +243,4 @@ main {
 }
 .hidden {
 	display: none;
-}
-/* 9 Hole Golf Course name */
-.game-name {
-	position: absolute;
-	left: -30px;
-	top: 80px;
-	font-size: 4rem;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	margin-bottom: 1rem;
-	color: #cf0221;
-	font-weight: bold; /* Make the text bold */
-	z-index: 10; /* Make sure it appears on top of the game score */
-	transform: rotate(-25deg); /* Rotate the text by -25 degrees to make it vertical */
-}
-.dice {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	height: 10rem;
-	width: 10rem;
-	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
-	border-radius: 15%;
-	background-color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	border: solid 3px #d9d9d9;
-}
-#close-instructions {
-	margin-top: 20px;
-	background-color: #d70303;
-	color: beige;
-}
-
-#close-instructions:hover {
-	background-color: #ff1f1f;
 }
