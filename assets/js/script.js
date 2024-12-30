@@ -67,7 +67,32 @@ btnEnd.addEventListener("click", function () {
 });
 
 // Initialize game
-const init = function (isAgainstComputer) {};
+const init = function (isAgainstComputer) {
+	againstComputer = isAgainstComputer; // Update the againstComputer variable
+	scores = [0, 0];
+	currentScores = [0, 0];
+	swings = [0, 0];
+	activePlayer = 0;
+	playing = true;
+	totalPar = 0; // Initialize overall par to 0
+	finishedHoles = [false, false];
+
+	diceEl.classList.add("hidden");
+	updateUI();
+	newHole();
+	// Display instructions popup before starting the game
+	const instructionsPopup = document.getElementById(
+		"instructions-popup"
+	);
+	instructionsPopup.classList.remove("hidden");
+
+	// Reset the button text for both players
+	btnRoll0.textContent = "Swing";
+	btnRoll1.textContent = "Waiting...";
+	hideInstructionsPopup();
+	// Hide the "Auto" button for player 2 if not playing against the computer
+	updateUIForOpponent();
+};
 const updateUIForOpponent = function () {
 	btnRoll1.style.display = againstComputer
 		? "none"
@@ -140,6 +165,8 @@ const newHole = function () {
 	finishedHoles = [false, false];
 	updateUI();
 };
+
+
 // Roll the dice to determine swing distance
 const rollDice = function () {
 	if (playing && !finishedHoles[activePlayer]) {
@@ -219,4 +246,5 @@ const autoPlay = function () {
 	}
 };
 
+showInstructionsPopup();
 btnNew.addEventListener("click", init);
