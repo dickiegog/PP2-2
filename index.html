@@ -34,11 +34,29 @@
         <button id="btn--new">New Game</button>
         <button id="btn--auto-1">Auto Play</button>
     </main>
-    <p>Select your opponent:</p>
+    <!-- User instructions that pop up on start up -->
+		<div id="instructions-popup" class="instructions-popup hidden">
+			<div class="instructions-content">
+				<h2>Welcome to our 9 Hole Golf course!</h2>
+				<p>This is a golf game where you aim to complete each hole in as few swings as possible. The player with the lowest score wins!</p>
+				<p>Instructions:</p>
+				<ul>
+					<li>You are Player 1, click "Swing" to take a shot.</li>
+					<li>Roll the dice to determine the outcome of your shot.</li>
+					<li>Try to get the ball into the hole in as few swings as possible.</li>
+					<li>If playing against the computer, select "Auto" to let the computer take its turn.</li>
+					<li>Click "New Game" to start a new game.</li>
+					<li>Click "End Game" to finish the game and see the scores to that point.</li>
+					<li>Below these instructions you will see 2 options to play against a "person" or "computer"</li>
+					<li>If you have someone next to you would like to play with select "person", or else select "computer"</li>
+				</ul>
+				<p>Select your opponent:</p>
 				<div class="opponent-buttons">
 					<button id="play-person" class="btn--opponent">Play Against Person</button>
 					<button id="play-computer" class="btn--opponent">Play Against Computer</button>
 				</div>
+			</div>
+		</div>
     <script src="assets/js/script.js" defer></script>
 </body>
 </html>
