@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golf Game</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Golf Game</h1>
-    </header>
-    <main>
-        <div class="player player--0 player--active" id="player--0">
-            <h2 id="name--0">Player 1</h2>
-            <p id="instruction--0">Swing away!</p>
-            <p id="total--0">Scorecard: 0</p>
-            <p id="current--0">Distance to hole: 300 meters</p>
-            <p id="swings--0">Shots from tee: 0</p>
-            <button id="btn--roll-0">Swing</button>
-        </div>
-        <div class="player player--1" id="player--1">
-            <h2 id="name--1">Player 2</h2>
-            <p id="instruction--1">Swing away!</p>
-            <p id="total--1">Scorecard: 0</p>
-            <p id="current--1">Distance to hole: 300 meters</p>
-            <p id="swings--1">Shots from tee: 0</p>
-            <button id="btn--roll-1">Swing</button>
-        </div>
-        <div id="hole-info">Hole 1 - Par 4</div>
-        <div id="total-par">Overall 0 Par</div>
-        <img src="" alt="Dice" class="dice hidden" />
-        <button id="btn--end">End Game</button>
-        <button id="btn--new">New Game</button>
-        <button id="btn--auto-1">Auto Play</button>
-    </main>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Virtual 9 Hole Golf Course game. Compete against a friend or the computer in this golf game of chance, based on a dice roll. Person that gets to the hole in less shots wins"
+		/>
+		<title>Golf Game</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png" />
+	</head>
+	<body>
+		<main>
+			<div class="game-name">9 Hole Golf Course!</div>
+			<div id="hole-info" class="hole-info">Hole 1 - Par 4</div>
+			<!-- Player 1 data -->
+			<section class="player player--0 player--active">
+				<div class="name" id="name--0">Player 1</div>
+				<div class="instruction" id="instruction--0">Swing Away!</div>
+				<button class="btn btn--roll" id="btn--roll-0">Swing</button>
+				<div class="swings" id="swings--0">Swings: 0</div>
+				<div class="current-score" id="current--0">Current: 0</div>
+				<div class="total-score" id="total--0">Scorecard: 0</div>
+			</section>
+			<!-- Dice Roll -->
+			<img src="assets/images/dice-1.png" alt="Dice" class="dice hidden" />
+			<!-- Player 2 data -->
+			<section class="player player--1">
+				<div class="name" id="name--1">Player 2</div>
+				<div class="instruction" id="instruction--1">Waiting...</div>
+				<div>
+					<button class="btn btn--roll" id="btn--roll-1">Waiting...</button>
+					<button class="btn btn--auto" id="btn--auto-1">Auto</button>
+				</div>
+				<div class="swings" id="swings--1">Swings: 0</div>
+				<div class="current-score" id="current--1">Current: 0</div>
+				<div class="total-score" id="total--1">Scorecard: 0</div>
+			</section>
+			<!-- buttons to end game and restart game -->
+			<div class="final-data">
+				<div id="total-par" class="total-par">Overall Par: 0</div>
+				<div class="finish-buttons">
+					<button class="btn btn--end">End Game</button>
+					<button class="btn btn--new">Restart Game</button>
+				</div>
+			</div>
+		</main>
     <!-- User instructions that pop up on start up -->
-		<div id="instructions-popup" class="instructions-popup hidden">
+		<div id="instructions-popup" class="instructions-popup ">
 			<div class="instructions-content">
 				<h2>Welcome to our 9 Hole Golf course!</h2>
 				<p>This is a golf game where you aim to complete each hole in as few swings as possible. The player with the lowest score wins!</p>

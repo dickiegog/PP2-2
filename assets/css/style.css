@@ -83,6 +83,134 @@ main {
 	max-height: 70%; /* Adjust the maximum height to 80% */
 	overflow: hidden;
 }
+.btn--roll,
+.btn--auto {
+	font-family: inherit;
+	font-size: 2.5rem;
+	font-weight: bolder;
+	padding: 1rem 4rem;
+	margin-bottom: 5rem;
+	margin-top: 2rem;
+	cursor: pointer;
+	background-color: #3eb606;
+	color: #000000;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
+}
+.finish-buttons {
+	display: flex;
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	justify-content: center;
+	gap: 10px; /* Add some space between buttons */
+}
+/* Finish buttons */
+.btn--new,
+.btn--end {
+	font-family: inherit;
+	font-size: 1.8rem;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	background-color: #d70303;
+	border: none;
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
+}
+/* When shoosing opponent in initial popup */
+.btn--opponent {
+	font-family: inherit;
+	font-size: 1.3rem;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	background-color: #0369d7;
+	border: none;
+	color: beige;
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
+}
+.player--active {
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 2px solid #3eb606;
+}
+
+.player--active .name {
+	font-weight: 700;
+	color: #3eb606;
+}
+
+.player--winner {
+	background-color: #2f2f2f;
+	border: 2px solid #d70303;
+}
+
+.player--winner .name {
+	font-weight: 700;
+	color: #a5c956;
+}
+.instructions-popup {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	max-width: 100%;
+	max-height: 100%;
+	overflow: hidden;
+}
+.instructions-content {
+	background-color: white;
+	padding: 20px;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+	border-radius: 10px;
+	height: auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	max-width: 80%;
+	max-height: 70%; /* Adjust the maximum height to 80% */
+	overflow: hidden;
+}
+#close-instructions {
+	margin-top: 20px;
+	background-color: #d70303;
+	color: beige;
+}
+
+#close-instructions:hover {
+	background-color: #ff1f1f;
+}
+.opponent-buttons {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+	gap: 10px;
+}
+.hidden {
+	display: none;
+}
+/* 9 Hole Golf Course name */
+.game-name {
+	position: absolute;
+	left: -30px;
+	top: 80px;
+	font-size: 4rem;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin-bottom: 1rem;
+	color: #cf0221;
+	font-weight: bold; /* Make the text bold */
+	z-index: 10; /* Make sure it appears on top of the game score */
+	transform: rotate(-25deg); /* Rotate the text by -25 degrees to make it vertical */
+}
 #close-instructions {
 	margin-top: 20px;
 	background-color: #d70303;
