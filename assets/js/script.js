@@ -7,20 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
 		document.querySelector("#score-area p");
 
 	let score = 0;
+	let gameInProgress = false;
 
 	function initializeGame() {
-		// Original repository logic for initializing the game goes here
-		gameDisplay.textContent = "Welcome to Golf Game!";
+		score = 0;
+		gameInProgress = false;
+		scoreDisplay.textContent = `Score: ${score}`;
+		gameDisplay.textContent =
+			"Welcome to Golf Game! Click Start to play.";
 	}
 
 	function handleGameStart() {
-		// Original repository logic for starting the game
-		gameDisplay.textContent = "Game in Progress...";
+		if (!gameInProgress) {
+			gameInProgress = true;
+			gameDisplay.textContent = "Game in Progress...";
+			// Additional game start logic from the repository can be added here
+		}
 	}
 
 	function handleGameReset() {
-		score = 0;
-		scoreDisplay.textContent = `Score: ${score}`;
 		initializeGame();
 	}
 
