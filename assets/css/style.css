@@ -5,49 +5,51 @@
 	box-sizing: border-box;
 }
 html {
-	font-size: 62.5%;
-	box-sizing: border-box;
+    font-size: 62.5%;
+    box-sizing: border-box;
 }
 body {
-	font-family: "Nunito", sans-serif;
-	font-weight: 400;
-	height: 100vh;
-	color: #333;
-	background-image: url("../images/golf-course.jpeg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	max-height: fit-content;
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    min-height: 100vh; /* Ensure full height on all screens */
+    color: #333;
+    background-image: url("../images/golf-course.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: fit-content;
 }
 main {
-	position: relative;
-	width: 100rem;
-	height: 65rem;
-	background-color: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(200px);
-	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
-	border-radius: 9px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+    position: relative;
+    width: 100rem;
+    height: 70vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(200px);
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 /* Player boxes */
 .player {
-	flex: 1;
-	padding: 2rem;
-	margin: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	transition: all 0.75s;
-	background-color: rgba(255, 255, 255, 0.8);
-	border-radius: 5px;
-	text-align: center;
-	overflow: hidden; /* Prevent text from overflowing */
-	max-height: fit-content;
+    flex: 0 1 100%; /* Take 90% of the available space */
+    padding: 2rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.75s;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden; /* Prevent text from overflowing */
+    height: 80%;
+    
 }
 /* Player names */
 .name {
@@ -57,7 +59,6 @@ main {
 	word-spacing: 2px;
 	font-weight: 300;
 	margin-bottom: 1rem;
-	text-align: center;
 }
 .btn--roll,
 .btn--auto {
@@ -65,7 +66,7 @@ main {
 	font-size: 2.5rem;
 	font-weight: bolder;
 	padding: 1rem 4rem;
-	margin-bottom: 5rem;
+	margin-bottom: 3rem;
 	margin-top: 2rem;
 	cursor: pointer;
 	background-color: #3eb606;
@@ -115,7 +116,7 @@ main {
 .game-name {
 	position: absolute;
 	left: -30px;
-	top: 80px;
+	top: 5px;
 	font-size: 4rem;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin-bottom: 1rem;
@@ -144,6 +145,7 @@ main {
 	position: absolute;
 	top: 4rem;
 	left: 50%;
+    top: -40px;
 	padding: 0.5rem 3rem;
 	width: auto;
 	background-color: #05dafa;
@@ -201,17 +203,15 @@ main {
 	color: #a5c956;
 }
 .instructions-popup {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.8);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 100;
-	max-width: 100%;
-	max-height: 100%;
-	overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100vh; /* Use 100vh for full viewport height */
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    overflow: hidden;
 }
 .instructions-content {
 	background-color: white;
@@ -241,95 +241,172 @@ main {
 	margin-top: 10px;
 	gap: 10px;
 }
+.final-data {
+		bottom: -150px;
+	}
+.total-par {
+		background-color: rgba(255, 255, 255, 0.922);
+		opacity: 1;
+		font-size: 3rem;
+	}
 .hidden {
 	display: none;
 }
-/* Media Query for screens below 940px */
-@media (max-width: 940px) {
+
+/* Media Query for screens below 1040px */
+@media (max-width: 1040px) {
 	html {
 		font-size: 50%;
 		box-sizing: border-box;
 	}
 	main {
-		height: 90%;
-		max-height: 350px;
+		height: 55%;
+		max-width: 90%;
 	}
 	.player {
-		height: 80%;
-	}
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 5rem;
+        margin: 2rem;
+        max-width: 90%;
+    }
+    .instruction {
+	margin-bottom: 3rem;
+    }
 	.game-name {
-		font-size: 3rem;
-		top: -7px;
-		width: 230px;
-		align-content: center;
-		left: 50%;
-		transform: translateX(-50%);
+		font-size: 5rem;
+		top: -40px;
+		width: 450px;
+		align-content: left;
+        left: -60px
 	}
 	.hole-info {
-		font-size: 2.5rem;
+		font-size: 3rem;
 		padding: 0.5rem 2rem;
-
+        top: 10px;
 		margin-top: -5px;
 	}
 	.instructions-content {
 		height: auto;
 		max-height: 100%;
 	}
-	.player {
-		margin: 1rem 0;
-	}
 	.btn--roll,
 	.btn--auto {
 		margin-top: 0;
-		margin-bottom: 1rem;
+		margin-bottom: 3rem;
 	}
-	.final-data {
-		margin-bottom: -150px;
-	}
-	.total-par {
-		background-color: rgba(255, 255, 255, 0.922);
-		opacity: 1;
-		font-size: 3rem;
-	}
+	
 }
 /* Media Query for screens below 640px */
 @media (max-width: 640px) {
+    body {
+        height: fit-content;
+    }
 	main {
-		margin-top: 20rem;
-		height: auto;
 		flex-direction: column;
+        margin-top: 40px;
+        max-width: 60%;
 	}
-	body {
-		margin-top: 100px;
-	}
+	
 	.game-name {
-		font-size: 2.5rem;
-		top: -50px;
-		width: 250px;
-		left: 50%;
-		transform: translateX(-50%);
+		font-size: 3.5rem;
+		top: -40px;
+		width: 450px;
+		left: 0px;
+        transform: none;
 	}
 	.hole-info {
-		font-size: 2rem;
-		padding: 0.5rem 2rem;
-		margin-top: -50px;
+		font-size: 3rem;
+		padding: 0.5rem 1rem;
+		margin-top: -10px;
+        width: 22rem;
 	}
-	.instructions-popup {
-		margin-top: -200px;
-	}
+	
 	.player {
 		margin: 1rem 0;
 	}
+    .dice {
+        top: 45%;
+        left: 0;
+    }
 
 	.total-par {
-		width: 220px;
+		width: 60%;
+        justify-items: center;
+        padding: 0.5rem 1rem;
 	}
 
 	.final-data {
-		position: relative;
 		opacity: 1;
 		width: 350px;
 		transform: none;
 		margin-top: 12rem;
 	}
+    .instructions-popup {
+        height: 100%;
+    }
+    .finish-buttons {
+        width: 100%;
+    }
+}
+/* Media Query for screens below 440px */
+@media (max-width: 440px) {
+	main {
+		margin-bottom: 0;
+		backdrop-filter: blur(0px);
+		height: auto;
+		max-height: 100%;
+		overflow-x: visible;
+        width: 400px;
+
+	}
+	body {
+		margin-top: 10px;
+        max-width: 100%;
+        width: 400px;
+	}
+	.game-name {
+		font-size: 3rem;
+		top: -35px;
+		width: 230px;
+	}
+	.hole-info {
+		font-size: 2.5rem;
+		padding: 0.5rem 2rem;
+		margin-top: -10px;
+        width: 20rem;
+	}
+	.instructions-popup {
+		margin-top: 0px;
+		width: 140%;
+		height: 140%;
+		max-height: none;
+		max-width: none;
+	}
+	.instructions-content {
+        top: 20px;
+		width: 60%;
+        justify-content: center;
+	}
+	.player {
+		padding-bottom: 0;
+	}
+	.total-par {
+		width: 70%;
+	}
+	.final-data {
+		width: 550px;
+	}
+}
+/* Media Query for screens below 440px */
+@media (max-width: 340px) {
+    .total-par {
+        width: 90%;
+    }
+    .finish-buttons {
+        width: 140%;
+    }
+
 }
