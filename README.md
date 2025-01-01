@@ -72,7 +72,7 @@ Live site: [Golf Game](https://YOUR-USERNAME.github.io/PP2-2).
 
 ### Colour Scheme
 
-- Background: Green (to mimic a golf course).
+- Background: Display green at the bottom and blue at the top of the screen (to mimic a golf course on a nice day).
 - Buttons: Contrasting colours (blue, green, red) for clarity and interaction feedback.
 
 ### Typography
@@ -131,7 +131,7 @@ Wireframes were not provided but the game was designed to prioritize clarity and
 
 ### Responsiveness Testing
 
-The game is fully responsive on multiple screen sizes:
+The game is fully responsive on multiple screen sizes, we shift the layout to display verically for better UX:
 
 - Desktop:  
   ![Responsive Desktop](assets/images/Responsive-desktop.png)
@@ -155,8 +155,8 @@ The game is fully responsive on multiple screen sizes:
 - **Bug**: Misleading line breaks flagged by JSHint.
   **Fix**: Not resolved in this version as functionality is unaffected but will be refactored in future updates.
   
-- **Bug**: Auto-instruction did not disappear when the auto button was clicked.
-  **Fix**: Added logic to hide the instruction upon clicking the button.
+- **Issue**: We noticed there was a lack of clarity with users with pressing the Auto button to start the computers automatic turn.
+  **Fix**: Added an extra line in the intro instructions and an extra line above the "Auto" button to explain.
 
 ---
 
