@@ -183,6 +183,8 @@ To deploy the Golf Game:
 5. Choose the **main** branch and root folder.
 6. Save, and GitHub Pages will generate a live link.
 
+The live link can be found here - https://dickiegog.github.io/PP2-2/ 
+
 ---
 
 ## Credits
