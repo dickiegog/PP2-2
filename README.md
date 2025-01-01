@@ -30,7 +30,7 @@
 
 ## Overview
 
-The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. The game tracks scores across multiple holes, calculating performance based on par values for each hole.
+The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. Swings are judged based on roll of the dice. The game tracks scores across multiple holes, calculating performance based on par values for each hole.
 
 Live site: <a href="https://dickiegog.github.io/PP2-2/" target="_blank" rel="noopener noreferrer">Golf Game</a>.
 
