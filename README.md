@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Game Rules](#game-rules)
 - [Features](#features)
 - [User Experience (UX)](#user-experience-ux)
   - [User Goals](#user-goals)
@@ -30,9 +31,18 @@
 
 ## Overview
 
-The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. Swings are judged based on roll of the dice. The game tracks scores across multiple holes, calculating performance based on par values for each hole.
+The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. Swings are judged based on chance and dictated by the roll of the dice. The game tracks scores across multiple holes, calculating performance based on par values for each hole. It can be stopped at any time, and scores are evaluated, so users do not need the time for a full 9 holes. This game might be used as an easy and quick way to pass free time with a friend or by yourself. It is targeted at people of all ages and just for passing fun. We do not yet store data for leaderboards or ongoing competitions. 
 
 Live site: <a href="https://dickiegog.github.io/PP2-2/" target="_blank" rel="noopener noreferrer">Golf Game</a>.
+
+## Game Rules
+
+- The game consists of multiple holes, each with its own par score, which represents the expected number of swings to complete the hole.
+- Players take turns hitting the golf ball toward the hole.
+- Players can choose to manually swing or enable an "Auto" mode for the second player, simulating play against a computer.
+- The player with the fewest swings wins each hole.
+- After both players finish a hole, the par score of that hole is added to their overall score.
+- The game ends after completing all the holes, and the player with the lowest overall score wins.
 
 ---
 
@@ -88,7 +98,7 @@ Live site: <a href="https://dickiegog.github.io/PP2-2/" target="_blank" rel="noo
 
 ## Wireframes
 
-Wireframes were not provided but the game was designed to prioritize clarity and accessibility for all users.
+Wireframes were not provided, but the game was designed to prioritize clarity and accessibility for all users.
 
 ---
 
@@ -126,7 +136,7 @@ Wireframes were not provided but the game was designed to prioritize clarity and
 ### Performance Testing
 
 - **Lighthouse**:  
-  Performance scores are excellent across categories. See results:  
+  Performance scores are excellent across categories. See lighthouse testing results:  
   ![Lighthouse Test](assets/images/Lighthouse-test.png)
 
 ### Responsiveness Testing
@@ -152,10 +162,12 @@ The game is fully responsive on multiple screen sizes, with the layout adjusting
 
 ## Bugs and Fixes
 
-- **Bug**: Misleading line breaks flagged by JSHint.
+- **Warnings**: Misleading line breaks flagged by JSHint.
   **Fix**: Not resolved in this version as functionality is unaffected but will be refactored in future updates.
+- **Bugs**: Links from this README are not opening in new tab.
+  **Fix**: Not resolved, despite adding target="_blank" and rel="noopener noreferrer" to anchored links, they continue to open in the same tab.
   
-- **Issue**: There was a lack of clarity for users pressing the Auto button to start the computer’s automatic turn.
+- **Previous Issues**: There was a lack of clarity for users pressing the Auto button to start the computer’s automatic turn.
   **Fix**: Added an extra line in the intro instructions and an extra line above the "Auto" button to explain.
 
 ---
@@ -182,6 +194,7 @@ To deploy the Golf Game:
 
 ### Acknowledgements
 
+- This project was built using the [Code Institute Full Template](https://github.com/Code-Institute-Org/ci-full-template), which provided the foundation for setting up and deploying the project.
 - Code Institute for providing the <a href="https://github.com/Code-Institute-Solutions/readme-template" target="_blank">README template</a>.
 - <a href="https://jshint.com/" target="_blank">JSHint</a> for JavaScript validation.
 - <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> for typography.
