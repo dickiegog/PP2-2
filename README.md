@@ -32,7 +32,7 @@
 
 The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. The game tracks scores across multiple holes, calculating performance based on par values for each hole.
 
-Live site: <a href="https://YOUR-USERNAME.github.io/PP2-2" target="_blank">Golf Game</a>.
+Live site: <a href="https://github.com/dickiegog/PP2-2/deployments/github-pages" target="_blank">Golf Game</a>.
 
 ---
 
