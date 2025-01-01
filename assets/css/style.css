@@ -236,6 +236,13 @@ main {
 #close-instructions:hover {
 	background-color: #ff1f1f;
 }
+#select-opponent {
+    display: flex;
+    font-size: medium;
+    font-weight: bold;
+    justify-content: space-around;
+    margin-top: 10px;
+}
 .opponent-buttons {
 	display: flex;
 	justify-content: space-around;
