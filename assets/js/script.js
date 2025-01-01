@@ -189,19 +189,35 @@ const switchPlayer = function () {
 		}
 	}
 };
-// Check for the winner based on current scores
 const checkForWinner = function () {
 	let winnerMessage = "";
 	if (scores[0] < scores[1]) {
-		winnerMessage = `Player 1 wins with a score of ${scores[0]} to ${scores[1]}`;
+		winnerMessage = `Player 1 wins, with a score of ${scores[0]} to ${scores[1]}!`;
 	} else if (scores[0] > scores[1]) {
-		winnerMessage = `Player 2 wins with a score of ${scores[1]} to ${scores[0]}`;
+		winnerMessage = `Player 2 wins, with a score of ${scores[1]} to ${scores[0]}!`;
 	} else {
 		winnerMessage = "It's a tie!";
 	}
-	alert(
-		`Game over! Total Par: ${totalPar}\n${winnerMessage}`
-	);
+
+	// Display the modal
+	const modal = document.getElementById("winnerModal");
+	const modalMessage =
+		document.getElementById("winnerMessage");
+	modalMessage.innerHTML = `Game Over!<br>Total Par: ${totalPar}<br>${winnerMessage}`;
+	modal.style.display = "block";
+
+	// Close the modal when the user clicks on <span> (x)
+	const span = document.getElementsByClassName("close")[0];
+	span.onclick = function () {
+		modal.style.display = "none";
+	};
+
+	// Close the modal when the user clicks anywhere outside of the modal
+	window.onclick = function (event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
 };
 // Roll the dice to determine swing distance
 const rollDice = function () {
