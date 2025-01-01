@@ -32,7 +32,7 @@
 
 The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. The game tracks scores across multiple holes, calculating performance based on par values for each hole.
 
-Live site: [Golf Game](https://YOUR-USERNAME.github.io/PP2-2).
+Live site: <a href="https://YOUR-USERNAME.github.io/PP2-2" target="_blank">Golf Game</a>.
 
 ---
 
@@ -102,9 +102,9 @@ Wireframes were not provided but the game was designed to prioritize clarity and
 
 ### Frameworks, Libraries, and Programs
 
-- **[FontAwesome](https://fontawesome.com/)**: For icons.
-- **[Google Fonts](https://fonts.google.com/)**: For typography.
-- **[JSHint](https://jshint.com/)**: For JavaScript code validation.
+- **<a href="https://fontawesome.com/" target="_blank">FontAwesome</a>**: For icons.
+- **<a href="https://fonts.google.com/" target="_blank">Google Fonts</a>**: For typography.
+- **<a href="https://jshint.com/" target="_blank">JSHint</a>**: For JavaScript code validation.
 
 ---
 
@@ -131,7 +131,7 @@ Wireframes were not provided but the game was designed to prioritize clarity and
 
 ### Responsiveness Testing
 
-The game is fully responsive on multiple screen sizes, we shift the layout to display verically for better UX:
+The game is fully responsive on multiple screen sizes, we shift the layout to display vertically for better UX:
 
 - Desktop:  
   ![Responsive Desktop](assets/images/Responsive-desktop.png)
@@ -164,7 +164,7 @@ The game is fully responsive on multiple screen sizes, we shift the layout to di
 
 To deploy the Golf Game:
 
-1. Clone the repository: [Golf Game Repository](https://github.com/dickiegog/PP2-2).
+1. Clone the repository: <a href="https://github.com/dickiegog/PP2-2" target="_blank">Golf Game Repository</a>.
 2. Navigate to your GitHub repo.
 3. Go to **Settings** > **Pages**.
 4. Under **Source**, select "Deploy from Branch."
@@ -177,14 +177,14 @@ To deploy the Golf Game:
 
 ### Images
 
-- **Background**: [iStock Golf Course](https://www.istockphoto.com/vector/golf-field-with-flag-gm165594199-6744168?phrase=golf+backgrounds)
-- **Icons**: [Freepik Golf Icon](https://www.freepik.com/icons/golf)
+- **Background**: <a href="https://www.istockphoto.com/vector/golf-field-with-flag-gm165594199-6744168?phrase=golf+backgrounds" target="_blank">iStock Golf Course</a>
+- **Icons**: <a href="https://www.freepik.com/icons/golf" target="_blank">Freepik Golf Icon</a>
 
 ### Acknowledgements
 
-- Code Institute for providing the [README template](https://github.com/Code-Institute-Solutions/readme-template).
-- [JSHint](https://jshint.com/) for JavaScript validation.
-- [Google Fonts](https://fonts.google.com/) for typography.
+- Code Institute for providing the <a href="https://github.com/Code-Institute-Solutions/readme-template" target="_blank">README template</a>.
+- <a href="https://jshint.com/" target="_blank">JSHint</a> for JavaScript validation.
+- <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> for typography.
 
 ---
 
