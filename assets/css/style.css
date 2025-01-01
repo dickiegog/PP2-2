@@ -381,7 +381,7 @@ main {
         height: 80%;
     }
     .game-name {
-        top: 0px;
+        top: -30px;
     }
     
 }
