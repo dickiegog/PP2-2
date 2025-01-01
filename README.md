@@ -32,7 +32,7 @@
 
 The **Golf Game** is an interactive two-player golf simulation game. It allows users to compete either against another player or a computer (in auto mode). Players aim to complete each hole in as few swings as possible. The game tracks scores across multiple holes, calculating performance based on par values for each hole.
 
-Live site: <a href="https://github.com/dickiegog/PP2-2/deployments/github-pages" target="_blank">Golf Game</a>.
+Live site: <a href="https://dickiegog.github.io/PP2-2/" target="_blank" rel="noopener noreferrer">Golf Game</a>.
 
 ---
 
@@ -131,7 +131,7 @@ Wireframes were not provided but the game was designed to prioritize clarity and
 
 ### Responsiveness Testing
 
-The game is fully responsive on multiple screen sizes, we shift the layout to display vertically for better UX:
+The game is fully responsive on multiple screen sizes, with the layout adjusting to display vertically for better UX:
 
 - Desktop:  
   ![Responsive Desktop](assets/images/Responsive-desktop.png)
@@ -155,7 +155,7 @@ The game is fully responsive on multiple screen sizes, we shift the layout to di
 - **Bug**: Misleading line breaks flagged by JSHint.
   **Fix**: Not resolved in this version as functionality is unaffected but will be refactored in future updates.
   
-- **Issue**: We noticed there was a lack of clarity with users with pressing the Auto button to start the computers automatic turn.
+- **Issue**: There was a lack of clarity for users pressing the Auto button to start the computer’s automatic turn.
   **Fix**: Added an extra line in the intro instructions and an extra line above the "Auto" button to explain.
 
 ---
@@ -190,4 +190,4 @@ To deploy the Golf Game:
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License. 
