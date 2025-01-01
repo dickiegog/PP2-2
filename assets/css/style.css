@@ -12,7 +12,7 @@ body {
     font-family: "Nunito", sans-serif;
     font-weight: 400;
     height: 100vh;
-    min-height: 100vh; /* Ensure full height on all screens */
+    min-height: 100vh; 
     color: #333;
     background-image: url("../images/golf-course.jpeg");
     background-size: cover;
@@ -37,7 +37,7 @@ main {
 }
 /* Player boxes */
 .player {
-    flex: 0 1 100%; /* Take 90% of the available space */
+    flex: 0 1 100%; 
     padding: 2rem;
     margin: 2rem;
     display: flex;
@@ -47,7 +47,7 @@ main {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     text-align: center;
-    overflow: hidden; /* Prevent text from overflowing */
+    overflow: hidden;
     height: 80%;
     
 }
@@ -83,7 +83,7 @@ main {
 	left: 50%;
 	transform: translateX(-50%);
 	justify-content: center;
-	gap: 10px; /* Add some space between buttons */
+	gap: 10px; 
 }
 /* Finish buttons */
 .btn--new,
@@ -120,10 +120,11 @@ main {
 	font-size: 4rem;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin-bottom: 1rem;
+    margin-left: 10px;
 	color: #cf0221;
-	font-weight: bold; /* Make the text bold */
-	z-index: 10; /* Make sure it appears on top of the game score */
-	transform: rotate(-25deg); /* Rotate the text by -25 degrees to make it vertical */
+	font-weight: bold; 
+	z-index: 10; 
+	transform: rotate(-25deg); 
 }
 /* instructions while playing */
 .instruction {
@@ -205,7 +206,7 @@ main {
 .instructions-popup {
     position: fixed;
     width: 100%;
-    height: 100vh; /* Use 100vh for full viewport height */
+    height: 100vh; 
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
@@ -223,7 +224,7 @@ main {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	text-align: center;
 	max-width: 80%;
-	max-height: 70%; /* Adjust the maximum height to 80% */
+	max-height: 70%; 
 	overflow: hidden;
 }
 #close-instructions {
@@ -299,6 +300,34 @@ main {
 	}
 	
 }
+/* Media Query for screens below 970px */
+@media (max-width: 970px) {
+    html {
+        font-size: 40%;
+    }
+    main {
+        height: 80%;
+    }
+    .game-name {
+        font-size: x-large;
+        top: -20px;
+    }
+    .player {
+        height: 90%;
+    }
+    
+}
+
+/* Media Query for screens below 750px */
+@media (max-width: 750px) {
+    main {
+        height: 80%;
+    }
+    .game-name {
+        top: 0px;
+    }
+    
+}
 /* Media Query for screens below 640px */
 @media (max-width: 640px) {
     body {
@@ -345,7 +374,7 @@ main {
 		margin-top: 12rem;
 	}
     .instructions-popup {
-        height: 100%;
+        height: 120%;
     }
     .finish-buttons {
         width: 100%;
@@ -401,7 +430,10 @@ main {
 	}
 }
 /* Media Query for screens below 440px */
-@media (max-width: 340px) {
+@media (max-width: 350px) {
+    .instructions-popup {
+        margin-bottom: 40px;
+    }
     .total-par {
         width: 90%;
     }
