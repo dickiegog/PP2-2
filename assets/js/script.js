@@ -31,8 +31,6 @@ btnAuto1.addEventListener("click", function () {
 		const autoInstruction = document.getElementById(
 			"auto-instruction--1"
 		);
-console.log(autoInstruction.classList);
-
 		// Check if the instruction is visible and hide it
 		if (!autoInstruction.classList.contains("hidden")) {
 			autoInstruction.classList.add("hidden");
@@ -42,7 +40,6 @@ console.log(autoInstruction.classList);
 		autoPlay();
 	}
 });
-console.log("Auto button clicked. Instruction hidden.");
 
 
 btnRoll0.addEventListener("click", function () {
@@ -153,18 +150,14 @@ const updateUI = function () {
 	totalParEl.textContent = `Overall ${totalPar} Par`;
 	const parScore0 = scores[0] - totalPar;
 	const parScore1 = scores[1] - totalPar;
-	document.getElementById(
-		`name--0`
-	).textContent = `Player 1: ${
+	document.getElementById(`name--0`).textContent = `Player 1: ${
 		holeNumber === 1
 			? ""
 			: parScore0 === 0
 			? "Par"
 			: parScore0 + " Par"
 	}`;
-	document.getElementById(
-		`name--1`
-	).textContent = `Player 2: ${
+	document.getElementById(`name--1`).textContent = `Player 2: ${
 		holeNumber === 1
 			? ""
 			: parScore1 === 0
