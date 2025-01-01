@@ -27,9 +27,24 @@ let againstComputer = false; // Add a variable to track if playing against a com
 // Add event listeners
 btnAuto1.addEventListener("click", function () {
 	if (activePlayer === 1 && !finishedHoles[1] && playing) {
-		autoPlay(); // Start auto-play for player 2
+		// Reference the instruction element
+		const autoInstruction = document.getElementById(
+			"auto-instruction--1"
+		);
+console.log(autoInstruction.classList);
+
+		// Check if the instruction is visible and hide it
+		if (!autoInstruction.classList.contains("hidden")) {
+			autoInstruction.classList.add("hidden");
+		}
+
+		// Start auto-play for Player 2
+		autoPlay();
 	}
 });
+console.log("Auto button clicked. Instruction hidden.");
+
+
 btnRoll0.addEventListener("click", function () {
 	if (activePlayer === 0) rollDice();
 });
@@ -156,6 +171,20 @@ const updateUI = function () {
 			? "Par"
 			: parScore1 + " Par"
 	}`;
+	// Show the instruction for Player 2 if it's their turn and they are set to auto
+	const autoInstruction = document.getElementById(
+		"auto-instruction--1"
+	);
+	if (
+		againstComputer &&
+		activePlayer === 1 &&
+		!finishedHoles[1]
+	) {
+		autoInstruction.textContent = `Click "Auto" to start Player 2's turn!`;
+		autoInstruction.classList.remove("hidden");
+	} else {
+		autoInstruction.classList.add("hidden");
+	}
 };
 // Change the hole number and par
 const newHole = function () {
@@ -170,18 +199,25 @@ const switchPlayer = function () {
 	activePlayer = activePlayer === 0 ? 1 : 0;
 	player0El.classList.toggle("player--active");
 	player1El.classList.toggle("player--active");
+
 	btnRoll0.textContent =
 		activePlayer === 0 ? "Swing" : "Waiting...";
 	btnRoll1.textContent =
-		activePlayer === 1 ? "Swing" : "Waiting...";
+		activePlayer === 1 && !againstComputer
+			? "Swing"
+			: "Waiting...";
+	if (againstComputer && activePlayer === 1) {
+		btnRoll1.textContent = "Waiting...";
+	}
+
+	updateUI();
+
 	if (finishedHoles[0] && finishedHoles[1]) {
 		if (holeNumber < 9) {
-			// Move to the next hole
 			totalPar += currentPar;
 			holeNumber++;
 			newHole();
 		} else {
-			// End the game after the last hole
 			totalPar += currentPar;
 			updateUI();
 			playing = false;
@@ -189,6 +225,7 @@ const switchPlayer = function () {
 		}
 	}
 };
+
 const checkForWinner = function () {
 	let winnerMessage = "";
 	if (scores[0] < scores[1]) {
@@ -263,6 +300,12 @@ const autoPlay = function () {
 		diceEl.classList.remove("hidden");
 		swings[activePlayer]++;
 
+		// Hide the "Auto" instruction after clicking
+		const autoInstruction = document.getElementById(
+			"auto-instruction--1"
+		);
+		autoInstruction.classList.add("hidden");
+
 		if (roll === 1) {
 			displayMessage("Sliced left, FORE!!");
 		} else if (roll === 6) {
@@ -285,13 +328,12 @@ const autoPlay = function () {
 					diceEl.classList.add("hidden"); // Hide the dice after 2 seconds
 				}, 1000);
 			}
-			updateUI(); // Update UI after adding to the score
+			updateUI();
 			switchPlayer();
 		} else {
-			updateUI(); // Update UI if the current score changes
+			updateUI();
 		}
 
-		// Check if player 2 has finished the hole, if not, continue auto-play
 		if (!finishedHoles[1]) {
 			setTimeout(autoPlay, 1000); // Auto-play with a delay
 		}

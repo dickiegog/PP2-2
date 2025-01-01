@@ -227,6 +227,11 @@ main {
 	max-height: 70%; 
 	overflow: hidden;
 }
+#auto-instruction--1 {
+    font-size: small;
+    margin-bottom: 2px;
+    margin-top: -20px;
+}
 #close-instructions {
 	margin-top: 20px;
 	background-color: #d70303;
